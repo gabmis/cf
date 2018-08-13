@@ -1,6 +1,7 @@
 from src.tools.methods import find_closest_car, compute_distance_and_speed, safety_distance
 from src.tools.parameters import default_max_acceleration, default_max_deceleration
 
+
 class Car:
 
     def __init__(

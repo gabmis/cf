@@ -53,6 +53,9 @@ class World:
                 if car.move(time, self.map.intersections, self.car_to_street):
                     car.end_date = self.time
 
+        for i in self.map.intersections:
+            i.behave(time)
+
         self.time += time
 
     def run(self, n_steps, step_time):

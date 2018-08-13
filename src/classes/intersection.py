@@ -32,16 +32,22 @@ class Intersection:
             if self.running_count >= self.a_b_time:
                 self.state = "lag_a_b"
                 self.running_count -= self.a_b_time
+            else:
+                return
 
         elif self.state == "b_passing":
             if self.running_count >= self.b_a_time:
                 self.state = "lag_b_a"
                 self.running_count -= self.b_a_time
+            else:
+                return
 
         elif self.state in ["lag_b_a", "lag_a_b"]:
             if self.running_count >= self.lag_time:
                 self.running_count -= self.lag_time
                 self.state = "a_passing" if self.state == "lag_b_a" else "b_passing"
+            else:
+                return
 
         if self.running_count > 0:
             self.behave(0)
