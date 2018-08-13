@@ -1,2 +1,9 @@
 .ideas
 
+/ressources/
+.idea/
+camboui.py
+ressources/
+src/__pycache__/
+temp-plot.html
+src/classes/__pycache__/
