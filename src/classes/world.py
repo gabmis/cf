@@ -44,7 +44,6 @@ class World:
         car.display()
 
     def run_step(self, time):
-
         for car in self.cars:
             car.choose_acceleration(time, self.car_to_street, self.cars)
 
@@ -98,7 +97,7 @@ class World:
                   'frames': frames
                   }
 
-        # plot(figure)
+        plot(figure)
 
     def get_stats(self):
         pass

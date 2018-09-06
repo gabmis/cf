@@ -9,6 +9,16 @@ def safety_distance(speed, factor=1.5):
     return factor * stopping_distance(speed)
 
 
+def solve_degree_two(a, b, c):
+    delta = b**2 - 4*a*c
+    print("delta: " + str(delta))
+    assert delta > 0
+    r_delta = np.sqrt(delta)
+    x1 = (-b + r_delta) / (2 * a)
+    x2 = (-b - r_delta) / (2 * a)
+    return min(x1, x2), max(x1, x2)
+
+
 def find_closest_car(current_car, cars):
     same_direction_cars = [c for c in cars if c.direction == current_car.direction]
 
@@ -35,14 +45,15 @@ def compute_distance_and_speed(acceleration, speed, time):
     distance = speed * time + acceleration * (time**2)
     return new_speed, distance
 
+
 def find_closest_red_light(current_car, intersections):
 
     selected_intersections = []
     for i in intersections:
         if current_car.current_street in [i.street_a_id, i.street_b_id]:
-            if (current_car.current_street == i.street_a_id and i.state != "a_passing") or (current_car.current_street == i.street_b_id and i.state != "b_passing"):
+            if (current_car.current_street == i.street_a_id and i.state != "a_passing")\
+                    or (current_car.current_street == i.street_b_id and i.state != "b_passing"):
                 selected_intersections.append(i)
-
 
     if current_car.direction == "n":
         selected_intersections = [i for i in selected_intersections if i.y >= current_car.y]

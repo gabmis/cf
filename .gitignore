@@ -7,3 +7,5 @@ ressources/
 src/__pycache__/
 temp-plot.html
 src/classes/__pycache__/
+src/tools/__pycache__/methods.cpython-36.pyc
+src/tools/__pycache__/parameters.cpython-36.pyc

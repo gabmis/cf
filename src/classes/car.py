@@ -49,7 +49,10 @@ class Car:
         print()
 
     def choose_acceleration(self, time, car_to_street, cars):
-        closest_car, distance = find_closest_car(self, [cars[i] for i in car_to_street[self.current_street]])
+
+        same_street_cars = [cars[i] for i in car_to_street[self.current_street]]
+
+        closest_car, distance = find_closest_car(self, same_street_cars)
 
         _, projected_distance = compute_distance_and_speed(closest_car.acceleration, closest_car.speed, time)
 
